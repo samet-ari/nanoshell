@@ -1,15 +1,6 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -g -Iinclude
+FLAGS = -Wall -Wextra 
 TARGET = nanoshell
+SRC = src/last.c
 
-all: $(TARGET)
-
-$(TARGET): src/main.c src/parser.c src/builtins.c include/nanoshell.h
-	$(CC) $(CFLAGS) -o $(TARGET) src/main.c src/parser.c src/builtins.c
-
-clean:
-	rm -f $(TARGET)
-
-re: clean all
-
-.PHONY: all clean re
+all: $(SRC)
+	gcc $(SRC) $(FLAGS) -o $(TARGET) 
